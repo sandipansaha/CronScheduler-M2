@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Created by PhpStorm.
+ * User: sandipan
+ * Date: 23/3/17
+ * Time: 1:50 PM
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="standard">
+        <route id="cronscheduler" frontName="testcronscheduler">
+            <module name="Sandipan_CronScheduler" />
+        </route>
+    </router>
+</config>

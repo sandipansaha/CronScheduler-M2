@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Created by PhpStorm.
+ * User: sandipan
+ * Date: 23/3/17
+ * Time: 1:50 PM
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Sandipan_CronScheduler::cronscheduler" title="Cron Scheduler" module="Sandipan_CronScheduler" sortOrder="110" resource="Sandipan_CronScheduler::cronscheduler" parent="Magento_Backend::system"/>
+
+        <add id="Sandipan_CronScheduler::cronscheduler_configuredjobs" title="Configured Jobs" module="Sandipan_CronScheduler" sortOrder="10" parent="Sandipan_CronScheduler::cronscheduler" action="cronscheduler/job" resource="Sandipan_CronScheduler::cronscheduler_configuredjobs"/>
+    </menu>
+</config>
