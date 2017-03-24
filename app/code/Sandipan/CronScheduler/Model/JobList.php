@@ -14,6 +14,20 @@ namespace Sandipan\CronScheduler\Model;
  */
 class JobList implements JobListInterface
 {
+    /** @var \Magento\Cron\Model\ConfigInterface  */
+    private $_cronConfig;
+
+    /**
+     * JobList constructor.
+     * @param \Magento\Cron\Model\ConfigInterface $cronConfig
+     */
+    public function __construct(
+        \Magento\Cron\Model\ConfigInterface $cronConfig
+    )
+    {
+        $this->_cronConfig = $cronConfig;
+    }
+
     /**
      * Get information about all configured cron jobs
      *
@@ -21,6 +35,15 @@ class JobList implements JobListInterface
      */
     public function getConfiguredJobs()
     {
-        // TODO: Implement getConfiguredJobs() method.
+        $jobList = [];
+
+        $jobTypes = $this->_cronConfig->getJobs();
+        foreach ($jobTypes as $_type) {
+            foreach ($_type as $_job) {
+                $jobList[] = new \Magento\Framework\DataObject($_job);
+            }
+        }
+
+        return $jobList;
     }
 }

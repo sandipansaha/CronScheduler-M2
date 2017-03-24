@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Created by PhpStorm.
+ * User: sandipan
+ * Date: 24/3/17
+ * Time: 11:54 AM
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="cronscheduler_schedule_index_grid"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="Sandipan\CronScheduler\Block\Adminhtml\Schedule\Container" name="adminhtml.cronscheduler.scheduled.job.grid.container"/>
+        </referenceContainer>
+    </body>
+</page>

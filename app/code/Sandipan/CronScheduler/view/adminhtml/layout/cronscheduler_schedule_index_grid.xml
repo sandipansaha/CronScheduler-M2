@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Created by PhpStorm.
+ * User: sandipan
+ * Date: 24/3/17
+ * Time: 11:54 AM
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="adminhtml.cronscheduler.scheduled.job.grid.container">
+            <block class="Magento\Backend\Block\Widget\Grid" name="adminhtml.indexer.grid" as="grid">
+                <arguments>
+                    <argument name="use_ajax" xsi:type="string">0</argument>
+                    <argument name="id" xsi:type="string">gridScheduledJbos</argument>
+                    <argument name="dataSource" xsi:type="object">Magento\Cron\Model\ResourceModel\Schedule\Collection</argument>
+                </arguments>
+                <block class="Magento\Backend\Block\Widget\Grid\ColumnSet" as="grid.columnSet" name="adminhtml.indexer.grid.columnSet">
+                    <arguments>
+                        <argument name="id" xsi:type="string">scheduledjob_grid</argument>
+                    </arguments>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="job_code">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Job Code</argument>
+                            <argument name="index" xsi:type="string">job_code</argument>
+                            <argument name="sortable" xsi:type="string">1</argument>
+                            <argument name="column_css_class" xsi:type="string">job-code</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="status">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Status</argument>
+                            <argument name="index" xsi:type="string">status</argument>
+                            <argument name="type" xsi:type="string">options</argument>
+                            <argument name="options" xsi:type="options" model="Sandipan\CronScheduler\Model\System\Config\Status"/>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="messages">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Messages</argument>
+                            <argument name="index" xsi:type="string">messages</argument>
+                            <argument name="sortable" xsi:type="string">0</argument>
+                            <argument name="column_css_class" xsi:type="string">job-messages</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="created_at">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Created At</argument>
+                            <argument name="index" xsi:type="string">created_at</argument>
+                            <argument name="type" xsi:type="string">datetime</argument>
+                            <argument name="sortable" xsi:type="string">1</argument>
+                            <argument name="column_css_class" xsi:type="string">col-date</argument>
+                            <argument name="header_css_class" xsi:type="string">col-date</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="scheduled_at">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Scheduled At</argument>
+                            <argument name="index" xsi:type="string">scheduled_at</argument>
+                            <argument name="type" xsi:type="string">datetime</argument>
+                            <argument name="sortable" xsi:type="string">1</argument>
+                            <argument name="column_css_class" xsi:type="string">col-date</argument>
+                            <argument name="header_css_class" xsi:type="string">col-date</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="executed_at">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Executed At</argument>
+                            <argument name="index" xsi:type="string">executed_at</argument>
+                            <argument name="type" xsi:type="string">datetime</argument>
+                            <argument name="sortable" xsi:type="string">1</argument>
+                            <argument name="column_css_class" xsi:type="string">col-date</argument>
+                            <argument name="header_css_class" xsi:type="string">col-date</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="finished_at">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Finished At</argument>
+                            <argument name="index" xsi:type="string">finished_at</argument>
+                            <argument name="type" xsi:type="string">datetime</argument>
+                            <argument name="sortable" xsi:type="string">1</argument>
+                            <argument name="column_css_class" xsi:type="string">col-date</argument>
+                            <argument name="header_css_class" xsi:type="string">col-date</argument>
+                        </arguments>
+                    </block>
+                    <!--<block class="Magento\Backend\Block\Widget\Grid\Column" as="indexer_status">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Status</argument>
+                            <argument name="getter" xsi:type="string">getStatus</argument>
+                            <argument name="renderer" xsi:type="string">Magento\Indexer\Block\Backend\Grid\Column\Renderer\Status</argument>
+                            <argument name="sortable" xsi:type="string">0</argument>
+                            <argument name="column_css_class" xsi:type="string">indexer-status</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="indexer_updated">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Updated</argument>
+                            <argument name="index" xsi:type="string">updated</argument>
+                            <argument name="type" xsi:type="string">datetime</argument>
+                            <argument name="getter" xsi:type="string">getLatestUpdated</argument>
+                            <argument name="renderer" xsi:type="string">Magento\Indexer\Block\Backend\Grid\Column\Renderer\Updated</argument>
+                            <argument name="sortable" xsi:type="string">0</argument>
+                            <argument name="column_css_class" xsi:type="string">col-date</argument>
+                            <argument name="header_css_class" xsi:type="string">col-date</argument>
+                        </arguments>
+                    </block>-->
+                </block>
+            </block>
+        </referenceBlock>
+    </body>
+</page>
