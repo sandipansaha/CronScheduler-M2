@@ -28,6 +28,7 @@
                             <item name="mass_delete_items" xsi:type="array">
                                 <item name="label" xsi:type="string" translate="true">Delete</item>
                                 <item name="url" xsi:type="string">*/*/massDelete</item>
+                                <item name="confirm" xsi:type="string" translate="true">Are you sure you wan't to delete selected item(s)?</item>
                             </item>
                         </argument>
                     </arguments>
