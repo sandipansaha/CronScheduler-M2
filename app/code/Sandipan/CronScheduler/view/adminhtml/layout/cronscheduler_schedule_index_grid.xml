@@ -15,7 +15,23 @@
                     <argument name="use_ajax" xsi:type="string">0</argument>
                     <argument name="id" xsi:type="string">gridScheduledJbos</argument>
                     <argument name="dataSource" xsi:type="object">Magento\Cron\Model\ResourceModel\Schedule\Collection</argument>
+                    <argument name="default_sort" xsi:type="string">scheduled_at</argument>
+                    <argument name="default_dir" xsi:type="string">DESC</argument>
                 </arguments>
+                <block class="Magento\Backend\Block\Widget\Grid\Massaction" name="adminhtml.cronscheduler.scheduled.job.grid.massaction" as="grid.massaction">
+                    <arguments>
+                        <argument name="massaction_id_field" xsi:type="string">schedule_id</argument>
+                        <argument name="form_field_name" xsi:type="string">schedule_ids</argument>
+                        <argument name="use_select_all" xsi:type="string">1</argument>
+                        <argument name="options" xsi:type="array">
+                            <updater>Sandipan\CronScheduler\Block\Adminhtml\Schedule\Grid\ItemsUpdater</updater>
+                            <item name="mass_delete_items" xsi:type="array">
+                                <item name="label" xsi:type="string" translate="true">Delete</item>
+                                <item name="url" xsi:type="string">*/*/massDelete</item>
+                            </item>
+                        </argument>
+                    </arguments>
+                </block>
                 <block class="Magento\Backend\Block\Widget\Grid\ColumnSet" as="grid.columnSet" name="adminhtml.indexer.grid.columnSet">
                     <arguments>
                         <argument name="id" xsi:type="string">scheduledjob_grid</argument>
@@ -24,24 +40,9 @@
                         <arguments>
                             <argument name="header" xsi:type="string" translate="true">Job Code</argument>
                             <argument name="index" xsi:type="string">job_code</argument>
-                            <argument name="sortable" xsi:type="string">1</argument>
-                            <argument name="column_css_class" xsi:type="string">job-code</argument>
-                        </arguments>
-                    </block>
-                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="status">
-                        <arguments>
-                            <argument name="header" xsi:type="string" translate="true">Status</argument>
-                            <argument name="index" xsi:type="string">status</argument>
                             <argument name="type" xsi:type="string">options</argument>
-                            <argument name="options" xsi:type="options" model="Sandipan\CronScheduler\Model\System\Config\Status"/>
-                        </arguments>
-                    </block>
-                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="messages">
-                        <arguments>
-                            <argument name="header" xsi:type="string" translate="true">Messages</argument>
-                            <argument name="index" xsi:type="string">messages</argument>
-                            <argument name="sortable" xsi:type="string">0</argument>
-                            <argument name="column_css_class" xsi:type="string">job-messages</argument>
+                            <argument name="options" xsi:type="options" model="Sandipan\CronScheduler\Model\System\Config\JobCode"/>
+                            <argument name="column_css_class" xsi:type="string">job-code</argument>
                         </arguments>
                     </block>
                     <block class="Magento\Backend\Block\Widget\Grid\Column" as="created_at">
@@ -84,27 +85,23 @@
                             <argument name="header_css_class" xsi:type="string">col-date</argument>
                         </arguments>
                     </block>
-                    <!--<block class="Magento\Backend\Block\Widget\Grid\Column" as="indexer_status">
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="messages">
                         <arguments>
-                            <argument name="header" xsi:type="string" translate="true">Status</argument>
-                            <argument name="getter" xsi:type="string">getStatus</argument>
-                            <argument name="renderer" xsi:type="string">Magento\Indexer\Block\Backend\Grid\Column\Renderer\Status</argument>
+                            <argument name="header" xsi:type="string" translate="true">Messages</argument>
+                            <argument name="index" xsi:type="string">messages</argument>
                             <argument name="sortable" xsi:type="string">0</argument>
-                            <argument name="column_css_class" xsi:type="string">indexer-status</argument>
+                            <argument name="column_css_class" xsi:type="string">job-messages</argument>
                         </arguments>
                     </block>
-                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="indexer_updated">
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="status">
                         <arguments>
-                            <argument name="header" xsi:type="string" translate="true">Updated</argument>
-                            <argument name="index" xsi:type="string">updated</argument>
-                            <argument name="type" xsi:type="string">datetime</argument>
-                            <argument name="getter" xsi:type="string">getLatestUpdated</argument>
-                            <argument name="renderer" xsi:type="string">Magento\Indexer\Block\Backend\Grid\Column\Renderer\Updated</argument>
-                            <argument name="sortable" xsi:type="string">0</argument>
-                            <argument name="column_css_class" xsi:type="string">col-date</argument>
-                            <argument name="header_css_class" xsi:type="string">col-date</argument>
+                            <argument name="header" xsi:type="string" translate="true">Status</argument>
+                            <argument name="index" xsi:type="string">status</argument>
+                            <argument name="type" xsi:type="string">options</argument>
+                            <argument name="options" xsi:type="options" model="Sandipan\CronScheduler\Model\System\Config\Status"/>
+                            <argument name="column_css_class" xsi:type="string">job-status</argument>
                         </arguments>
-                    </block>-->
+                    </block>
                 </block>
             </block>
         </referenceBlock>

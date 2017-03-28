@@ -41,32 +41,11 @@
                     <block class="Magento\Backend\Block\Widget\Grid\Column" as="instance">
                         <arguments>
                             <argument name="header" xsi:type="string" translate="true">Method Name</argument>
-                            <argument name="renderer" xsi:type="string">Sandipan\CronScheduler\Block\Adminhtml\Grid\Column\Renderer\Method</argument>
+                            <argument name="renderer" xsi:type="string">Sandipan\CronScheduler\Block\Adminhtml\Job\Grid\Column\Renderer\Method</argument>
                             <argument name="sortable" xsi:type="string">0</argument>
                             <argument name="column_css_class" xsi:type="string">job-method</argument>
                         </arguments>
                     </block>
-                    <!--<block class="Magento\Backend\Block\Widget\Grid\Column" as="indexer_status">
-                        <arguments>
-                            <argument name="header" xsi:type="string" translate="true">Status</argument>
-                            <argument name="getter" xsi:type="string">getStatus</argument>
-                            <argument name="renderer" xsi:type="string">Magento\Indexer\Block\Backend\Grid\Column\Renderer\Status</argument>
-                            <argument name="sortable" xsi:type="string">0</argument>
-                            <argument name="column_css_class" xsi:type="string">indexer-status</argument>
-                        </arguments>
-                    </block>
-                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="indexer_updated">
-                        <arguments>
-                            <argument name="header" xsi:type="string" translate="true">Updated</argument>
-                            <argument name="index" xsi:type="string">updated</argument>
-                            <argument name="type" xsi:type="string">datetime</argument>
-                            <argument name="getter" xsi:type="string">getLatestUpdated</argument>
-                            <argument name="renderer" xsi:type="string">Magento\Indexer\Block\Backend\Grid\Column\Renderer\Updated</argument>
-                            <argument name="sortable" xsi:type="string">0</argument>
-                            <argument name="column_css_class" xsi:type="string">col-date</argument>
-                            <argument name="header_css_class" xsi:type="string">col-date</argument>
-                        </arguments>
-                    </block>-->
                 </block>
             </block>
         </referenceBlock>

@@ -14,6 +14,7 @@ namespace Sandipan\CronScheduler\Model\Job\ResourceModel\Grid;
  */
 class Collection extends \Magento\Framework\Data\Collection
 {
+    /** @var \Sandipan\CronScheduler\Model\JobListInterface  */
     private $_jobList;
 
     /**

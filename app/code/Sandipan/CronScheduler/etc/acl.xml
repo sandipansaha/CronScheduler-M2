@@ -14,7 +14,8 @@
                 <resource id="Magento_Backend::system">
                     <resource id="Sandipan_CronScheduler::cronscheduler" title="Cron Scheduler" translate="title" sortOrder="110">
                         <resource id="Sandipan_CronScheduler::cronscheduler_configuredjobs" title="Configured Jobs" translate="title" sortOrder="10" />
-                        <resource id="Sandipan_CronScheduler::cronscheduler_schuledjobs" title="Scheduled Jobs" translate="title" sortOrder=20" />
+                        <resource id="Sandipan_CronScheduler::cronscheduler_schuledjobs" title="Scheduled Jobs" translate="title" sortOrder="20" />
+                        <resource id="Sandipan_CronScheduler::cronscheduler_schuledjobs_deleteItem" title="Delete Scheduled Job" translate="title" sortOrder="30" />
                     </resource>
                 </resource>
             </resource>
